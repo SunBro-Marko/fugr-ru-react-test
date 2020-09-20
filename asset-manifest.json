@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/fugr-ru-react-test/static/css/main.523f09c5.chunk.css",
+    "main.js": "/fugr-ru-react-test/static/js/main.0e6cc406.chunk.js",
+    "main.js.map": "/fugr-ru-react-test/static/js/main.0e6cc406.chunk.js.map",
+    "runtime-main.js": "/fugr-ru-react-test/static/js/runtime-main.66173708.js",
+    "runtime-main.js.map": "/fugr-ru-react-test/static/js/runtime-main.66173708.js.map",
+    "static/js/2.41a19348.chunk.js": "/fugr-ru-react-test/static/js/2.41a19348.chunk.js",
+    "static/js/2.41a19348.chunk.js.map": "/fugr-ru-react-test/static/js/2.41a19348.chunk.js.map",
+    "index.html": "/fugr-ru-react-test/index.html",
+    "precache-manifest.a8b87e5271b99aab02420d9fc8973339.js": "/fugr-ru-react-test/precache-manifest.a8b87e5271b99aab02420d9fc8973339.js",
+    "service-worker.js": "/fugr-ru-react-test/service-worker.js",
+    "static/css/main.523f09c5.chunk.css.map": "/fugr-ru-react-test/static/css/main.523f09c5.chunk.css.map",
+    "static/js/2.41a19348.chunk.js.LICENSE.txt": "/fugr-ru-react-test/static/js/2.41a19348.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/fugr-ru-react-test/static/media/logo.ee7cd8ed.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.66173708.js",
+    "static/js/2.41a19348.chunk.js",
+    "static/css/main.523f09c5.chunk.css",
+    "static/js/main.0e6cc406.chunk.js"
+  ]
+}
