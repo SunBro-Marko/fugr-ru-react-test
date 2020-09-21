@@ -1,6 +1,7 @@
 {
   "name": "fugr-ru-react-test",
   "version": "0.1.0",
+  "homepage": "https://SunBro-Marko.github.io/fugr-ru-react-test",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
