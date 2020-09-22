@@ -1,0 +1,13 @@
+.container-fluid{
+    padding: 0;
+}
+
+
+.content{
+    padding: 10% 0% ;
+}
+
+.blabla{
+    display: flex; align-items: center; justify-content: start; 
+}
+
