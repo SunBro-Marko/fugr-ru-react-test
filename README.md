@@ -3,7 +3,6 @@
  - MaterialiseCss, https://materializecss.com/
  - Github pages deploy with action, https://github.com/JamesIves/github-pages-deploy-action
 
-
 ## Available Scripts
 
 ```
