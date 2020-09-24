@@ -1,16 +1,19 @@
 import React from 'react'
 
 const TablePage = props => {
-  const dataSize = props.match.params.id
+  const {isLoaded, data} = props
 
 
-  return (
-    <>
-      <h1>Table: {dataSize}</h1>
-          {JSON.stringify(props)}
-
-    </>
-  )
+  if (!isLoaded) {
+    return <div>Loading...</div>
+  } else {
+    return (
+      <>
+        <h1>Table</h1>
+        {JSON.stringify(data)}
+      </>
+    )
+  }
 }
 
 export default TablePage

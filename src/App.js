@@ -4,20 +4,18 @@ import {
 import NavBar from './components/NavBar/NavBar'
 import AboutPage from './pages/AboutPage'
 import StartPage from './pages/StartPage'
-import TablePage from './pages/TablePage'
+import {TableDataProvider} from './components/TableDataProvider/TableDataProvider'
 
 function App() {
   return (
-    <>
       <Router>
-        <NavBar activeRoute="/about"/>
+        <NavBar/>
         <Switch>
-          <Route path="/data" component={StartPage}/>
-          <Route path="/table/:id" component={TablePage}/>
+          <Route exact path="/" component={StartPage}/>
+          <Route exact path='/table/:size' component={TableDataProvider}/>
           <Route path="/about" component={AboutPage}/>
         </Switch>
       </Router>
-    </>
   )
 }
 

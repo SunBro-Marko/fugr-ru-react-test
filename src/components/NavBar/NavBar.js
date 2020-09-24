@@ -5,7 +5,7 @@ import {Link, NavLink} from 'react-router-dom'
 const NavBar = props => {
   return (
     <div className="navbar navbar-expand-md navbar-dark bg-dark">
-      <Link to="/about" className="navbar-brand">
+      <Link to="/" className="navbar-brand">
         <img src={logo} width="30" height="30" className="d-inline-block align-top mr-2" alt="" loading="lazy"/>
         Fugr-ru React test
       </Link>
@@ -16,7 +16,7 @@ const NavBar = props => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <NavLink to="/data" activeClassName="active" className="nav-link">Chose data</NavLink>
+            <NavLink to="/" activeClassName="active" className="nav-link">Chose data</NavLink>
           </li>
           <li className="nav-item">
             <NavLink to="/about" activeClassName="active" className="nav-link">About app</NavLink>
