@@ -7,8 +7,16 @@ import StartPage from './pages/StartPage'
 import {TableDataProvider} from './components/TableDataProvider/TableDataProvider'
 
 function App() {
+  let baseUrl
+  if(process.env.NODE_ENV === 'development') {
+    baseUrl = ''
+  }
+
+  if(process.env.NODE_ENV === 'production') {
+    baseUrl = 'fugr-ru-react-test'
+  }
   return (
-      <Router>
+      <Router basename={baseUrl}>
         <NavBar/>
         <Switch>
           <Route exact path="/" component={StartPage}/>
