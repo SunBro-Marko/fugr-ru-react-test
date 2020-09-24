@@ -1,25 +1,23 @@
 {
   "files": {
-    "main.css": "/fugr-ru-react-test/static/css/main.19785806.chunk.css",
-    "main.js": "/fugr-ru-react-test/static/js/main.f43cd4f3.chunk.js",
-    "main.js.map": "/fugr-ru-react-test/static/js/main.f43cd4f3.chunk.js.map",
+    "main.css": "/fugr-ru-react-test/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/fugr-ru-react-test/static/js/main.1b3cc5f1.chunk.js",
+    "main.js.map": "/fugr-ru-react-test/static/js/main.1b3cc5f1.chunk.js.map",
     "runtime-main.js": "/fugr-ru-react-test/static/js/runtime-main.66173708.js",
     "runtime-main.js.map": "/fugr-ru-react-test/static/js/runtime-main.66173708.js.map",
-    "static/css/2.d9ad5f5c.chunk.css": "/fugr-ru-react-test/static/css/2.d9ad5f5c.chunk.css",
-    "static/js/2.0881b131.chunk.js": "/fugr-ru-react-test/static/js/2.0881b131.chunk.js",
-    "static/js/2.0881b131.chunk.js.map": "/fugr-ru-react-test/static/js/2.0881b131.chunk.js.map",
+    "static/js/2.62659bdf.chunk.js": "/fugr-ru-react-test/static/js/2.62659bdf.chunk.js",
+    "static/js/2.62659bdf.chunk.js.map": "/fugr-ru-react-test/static/js/2.62659bdf.chunk.js.map",
     "index.html": "/fugr-ru-react-test/index.html",
-    "precache-manifest.56de4ca7c2bc1da9f7b6f29ec481e6ca.js": "/fugr-ru-react-test/precache-manifest.56de4ca7c2bc1da9f7b6f29ec481e6ca.js",
+    "precache-manifest.c8da470d7967935cee5116a91c4bce9c.js": "/fugr-ru-react-test/precache-manifest.c8da470d7967935cee5116a91c4bce9c.js",
     "service-worker.js": "/fugr-ru-react-test/service-worker.js",
-    "static/css/2.d9ad5f5c.chunk.css.map": "/fugr-ru-react-test/static/css/2.d9ad5f5c.chunk.css.map",
-    "static/css/main.19785806.chunk.css.map": "/fugr-ru-react-test/static/css/main.19785806.chunk.css.map",
-    "static/js/2.0881b131.chunk.js.LICENSE.txt": "/fugr-ru-react-test/static/js/2.0881b131.chunk.js.LICENSE.txt"
+    "static/css/main.5ecd60fb.chunk.css.map": "/fugr-ru-react-test/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.62659bdf.chunk.js.LICENSE.txt": "/fugr-ru-react-test/static/js/2.62659bdf.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/fugr-ru-react-test/static/media/logo.8ab5c688.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.66173708.js",
-    "static/css/2.d9ad5f5c.chunk.css",
-    "static/js/2.0881b131.chunk.js",
-    "static/css/main.19785806.chunk.css",
-    "static/js/main.f43cd4f3.chunk.js"
+    "static/js/2.62659bdf.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.1b3cc5f1.chunk.js"
   ]
 }
