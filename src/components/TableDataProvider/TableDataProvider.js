@@ -3,9 +3,12 @@ import TablePage from '../../pages/TablePage'
 
 export class TableDataProvider extends React.Component {
   fetchUrl = {
-    large: `http://www.filltext.com/?rows=1000&id={number|1000}&firstName={firstName}&delay=3&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}`,
-    small: `http://www.filltext.com/?rows=32&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}`
-  }
+    // https://www.mockaroo.com/schemas/260485
+    large: `https://api.mockaroo.com/api/847ce770?count=1000&key=beedb770`,
+    small: `https://api.mockaroo.com/api/847ce770?count=32&key=beedb770`
+  //    large: `http://www.filltext.com/?rows=1000&id={number|1000}&firstName={firstName}&delay=3&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}`,
+  //   small: `http://www.filltext.com/?rows=32&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}`
+   }
 
   constructor(props) {
     super(props)
