@@ -1,33 +1,43 @@
-import React from "react"
+import React from "react";
+import TableSearch from "./tableSearch";
+
 //import classes from "./template.module.scss"
 
-const Table = (props) => {
-  const headers = ["ID", "firstName", "lastname", "email", "phone"]
-
-  const headerList = headers.map((header) => <th>{header}</th>)
-
+class Table extends React.Component {
   
 
-  const usersList = props.users.map((user) => (
-      <tr>
-          <th scope="row">{user.id}</th>
-          <td>{user.firstName}</td>
-          <td>{user.lastName}</td>
-          <td>{user.email}</td>
-          <td>{user.phone}</td>
-      </tr>
-  ))
+  render() {
+    const headers = ["id", "firstName", "lastName", "email", "phone"];
 
-  return (
-    <div class="table-responsive">
-      <table class="table table-hover">
-        <thead>
-          <tr>{headerList}</tr>
-        </thead>
-        <tbody>{usersList}</tbody>
-      </table>
-    </div>
-  )
+    const headerList = headers.map((header) => (
+      <th onClick={this.props.sortHandler.bind(null, header)}>
+        {header}{" "}
+        {this.props.sortField === header ? <small>{this.props.sortDirection}</small> : ""}
+      </th>
+    ));
+
+    const usersList = this.props.users.map((user) => (
+      <tr key={user.id + user.firstName}>
+        <th scope="row">{user.id}</th>
+        <td>{user.firstName}</td>
+        <td>{user.lastName}</td>
+        <td>{user.email}</td>
+        <td>{user.phone}</td>
+      </tr>
+    ));
+
+    return (
+      <div className="table-responsive">
+        <TableSearch />
+        <table className="table table-hover">
+          <thead>
+            <tr>{headerList}</tr>
+          </thead>
+          <tbody>{usersList}</tbody>
+        </table>
+      </div>
+    );
+  }
 }
 
-export default Table
+export default Table;
