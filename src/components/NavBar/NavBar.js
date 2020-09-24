@@ -16,7 +16,7 @@ const NavBar = props => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <NavLink to="/" activeClassName="active" className="nav-link">Chose data</NavLink>
+            <NavLink exact to="/" activeClassName="active" className="nav-link">Chose data</NavLink>
           </li>
           <li className="nav-item">
             <NavLink to="/about" activeClassName="active" className="nav-link">About app</NavLink>

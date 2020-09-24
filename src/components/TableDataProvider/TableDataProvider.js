@@ -18,23 +18,19 @@ export class TableDataProvider extends React.Component {
   }
 
   componentDidMount() {
-    fetch(this.state.fetchUrl, {mode: 'no-cors'})
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            data: result
-          })
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          })
-        }
-      )
+    let xhr = new XMLHttpRequest()
+    xhr.open('GET', this.state.fetchUrl, true)
+    xhr.onload = () => {
+      if (xhr.status !== 200) {
+        this.setState({isLoaded: true, error: 'Error'})
+        return
+      }
+      let result = JSON.parse(xhr.response)
+      this.setState({isLoaded: true, data: result})
+    }
+    xhr.send()
   }
+
 
   render() {
     const {error, isLoaded, data} = this.state
