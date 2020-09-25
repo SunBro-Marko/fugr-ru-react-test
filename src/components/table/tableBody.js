@@ -11,7 +11,7 @@ class TableBody extends React.Component {
           return str.split(regexp).map((s, index, array) => {
             if (index < array.length - 1) {
               const c = matchValue.shift()
-              return <>{s}<span className={'bg-warning'}>{c}</span></>
+              return <span key={Math.random()}>{s}<span className={'bg-warning'}>{c}</span></span>
             }
             return s
           })
@@ -24,7 +24,7 @@ class TableBody extends React.Component {
 
     const usersList = this.props.data.map((user) => (
         <tr key={user.id} onClick={this.props.selectionHandler.bind(null, user)}>
-          <th scope="row">{this.Hightlight(user.id,this.props.searchFilter)}</th>
+          <td>{this.Hightlight(user.id,this.props.searchFilter)}</td>
           <td>{this.Hightlight(user.first_name,this.props.searchFilter)}</td>
           <td>{this.Hightlight(user.last_name,this.props.searchFilter)}</td>
           <td>{this.Hightlight(user.email,this.props.searchFilter)}</td>

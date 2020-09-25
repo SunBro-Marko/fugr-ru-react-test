@@ -58,6 +58,7 @@ class Table extends React.Component {
       })
     } else {
       this.setState({
+        searchFilter: '',
         search: false,
         filteredData: '',
       })
