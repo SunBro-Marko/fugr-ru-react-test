@@ -1,7 +1,7 @@
-import React from "react";
-import TableSearch from "./tableSearch";
-import TableHead from "./tableHead";
-import TableBody from "./tableBody";
+import React from 'react'
+import TableSearch from './tableSearch'
+import TableHead from './tableHead'
+import TableBody from './tableBody'
 
 //import classes from "./template.module.scss"
 
@@ -11,26 +11,38 @@ class Table extends React.Component {
     isLoading: false,
     isShowForm: false,
     data: this.props.data,
-    search: "",
-    sortDirection: "asc", // or desc
-    sortField: "id",
+    search: '',
+    sortDirection: 'asc',
+    sortField: 'id',
     selectionRow: null,
     currentPage: 0,
-    headers: ["id", "firstName", "lastName", "email", "phone"],
-  };
+    headers: ['id', 'first_name', 'last_name', 'email', 'phone'],
+  }
 
   sortHandler = (field) => {
-    const clonedData = this.state.data.concat();
-    const sortType = this.state.sortDirection === "asc" ? "desc" : "asc";
+    const clonedData = this.state.data.concat()
 
-    const orderedData = clonedData;
+    const sortType = this.state.sortDirection === 'asc' ? 'desc' : 'asc'
+
+    const orderedData = clonedData.sort((a, b) => {
+      if (a[field] > b[field]) {
+        return 1
+      }
+      if (a[field] < b[field]) {
+        return -1
+      }
+      return 0
+    })
 
     this.setState({
-      data: orderedData,
+      data:
+        sortType === 'asc'
+          ? orderedData
+          : orderedData.reverse(),
       sortDirection: sortType,
       sortField: field,
-    });
-  };
+    })
+  }
 
   render() {
     return (
@@ -46,8 +58,8 @@ class Table extends React.Component {
           <TableBody data={this.state.data} />
         </table>
       </div>
-    );
+    )
   }
 }
 
-export default Table;
+export default Table
