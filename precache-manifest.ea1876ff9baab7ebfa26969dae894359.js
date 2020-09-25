@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b8d4b2e9fb9c28c60a4a0fda994e2ec8",
+    "revision": "79bbafb87f0d024f4f7bb66a16ca349c",
     "url": "/fugr-ru-react-test/index.html"
   },
   {
-    "revision": "ff47e042e58931e94e6f",
+    "revision": "c032f4541ef5d50edf5d",
     "url": "/fugr-ru-react-test/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fugr-ru-react-test/static/js/2.54a1c833.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ff47e042e58931e94e6f",
-    "url": "/fugr-ru-react-test/static/js/main.fb9b996a.chunk.js"
+    "revision": "c032f4541ef5d50edf5d",
+    "url": "/fugr-ru-react-test/static/js/main.a14404e1.chunk.js"
   },
   {
     "revision": "6c49e45d7acef5724baa",
