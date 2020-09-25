@@ -1,4 +1,5 @@
 import React from 'react'
+import Table from '../components/table/table'
 
 const TablePage = props => {
   const {isLoaded, data} = props
@@ -8,9 +9,8 @@ const TablePage = props => {
     return <div>Loading...</div>
   } else {
     return (
-      <>
-        <h1>Table</h1>
-        {JSON.stringify(data)}
+      <>        
+        <Table data={data}/>
       </>
     )
   }
