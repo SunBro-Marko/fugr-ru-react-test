@@ -13,6 +13,7 @@ class Table extends React.Component {
     data: this.props.data,
     filteredData: '',
     search: false,
+    searchFilter: '',
     sortDirection: 'asc',
     sortField: 'id',
     selectionRow: null,
@@ -51,6 +52,7 @@ class Table extends React.Component {
   searchHandler = (search) => {
     if (search) {
       this.setState({
+        searchFilter: search,
         search: true,
         filteredData: this.getFilteredData(this.state.data, search),
       })
@@ -87,6 +89,7 @@ class Table extends React.Component {
           <TableBody
             data={this.state.search ? this.state.filteredData : this.state.data}
             selectionHandler={this.selectionHandler}
+            searchFilter={this.state.searchFilter}
           />
         </table>
       </div>
