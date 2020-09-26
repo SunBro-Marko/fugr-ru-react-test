@@ -1,16 +1,16 @@
 import React from 'react'
 import Table from '../components/table/table'
+import Loader from '../components/table/Loader/Loader'
 
 const TablePage = props => {
   const {isLoaded, data} = props
 
-
   if (!isLoaded) {
-    return <div>Loading...</div>
+    return <Loader/>
   } else {
     return (
-      <>        
-        <Table data={data}/>
+      <>
+        <Table isLoaded={isLoaded} data={data}/>
       </>
     )
   }

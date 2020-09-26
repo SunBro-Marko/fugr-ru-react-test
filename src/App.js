@@ -19,9 +19,9 @@ function App() {
       <Router basename={baseUrl}>
         <NavBar/>
         <Switch>
-          <Route exact path="/" component={StartPage}/>
           <Route exact path='/table/:size' component={TableDataProvider}/>
           <Route path="/about" component={AboutPage}/>
+          <Route path="/" component={StartPage}/>
         </Switch>
       </Router>
   )

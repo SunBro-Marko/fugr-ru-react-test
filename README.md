@@ -2,6 +2,7 @@
  - React, https://ru.reactjs.org/
  - MaterialiseCss, https://materializecss.com/
  - Github pages deploy with action, https://github.com/JamesIves/github-pages-deploy-action
+ - Mockaroo random data generator, https://www.mockaroo.com/
 
 ## Available Scripts
 
