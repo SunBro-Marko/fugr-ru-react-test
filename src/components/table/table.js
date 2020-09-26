@@ -2,31 +2,48 @@ import React from 'react'
 import TableSearch from './tableSearch'
 import TableHead from './tableHead'
 import TableBody from './tableBody'
+import TablePaginator from './tablePaginator'
 
 //import classes from "./template.module.scss"
 
 class Table extends React.Component {
   state = {
     isDataSelected: false,
-    isLoading: false,
     isShowForm: false,
     data: this.props.data,
-    filteredData: '',
-    search: false,
+    dataFiltred: '',
     searchFilter: '',
     sortDirection: 'asc',
     sortField: 'id',
     selectionRow: null,
+    itemsOnPage: 10,
     currentPage: 0,
-    headers: ['id', 'first_name', 'last_name', 'email', 'phone'],
+    headers: ['id', 'firstName', 'lastName', 'email', 'phone'],
+  }
+
+  componentDidMount(){
+    this.sortHandler('none')
   }
 
   sortHandler = (field) => {
-    const clonedData = this.state.data.concat()
+    let sortType = ''
 
-    const sortType = this.state.sortDirection === 'asc' ? 'desc' : 'asc'
+    if (field) {
+      if (field === this.state.sortField) {
+        sortType = this.state.sortDirection === 'asc' ? 'desc' : 'asc'
+      } else {
+        sortType = 'asc'
+      }
+    }
+    if (field === 'none') {
+      sortType = this.state.sortDirection
+      field = this.state.sortField
+    }
+    console.log(`Ячейка:${field}, направление:${sortType}`)
 
-    const orderedData = clonedData.sort((a, b) => {
+    let clonedData = this.state.data.concat()
+
+    let orderedData = clonedData.sort((a, b) => {
       if (a[field] > b[field]) {
         return 1
       }
@@ -50,50 +67,85 @@ class Table extends React.Component {
   }
 
   searchHandler = (search) => {
-    if (search) {
-      this.setState({
-        searchFilter: search,
-        search: true,
-        filteredData: this.getFilteredData(this.state.data, search),
-      })
-    } else {
-      this.setState({
-        searchFilter: '',
-        search: false,
-        filteredData: '',
-      })
-    }
+    
+    this.setState({
+      searchFilter: search,
+    })
   }
 
-  getFilteredData(data, search) {
+  paginatorHandler = (page, pages) => {
+    
+
+    let newPage
+
+    if(parseInt(page)){newPage = page-1}
+    if(page==='<'){newPage =  this.state.currentPage-1>=0 ? this.state.currentPage-1:0}
+    if(page==='>'){newPage =  this.state.currentPage+1<=pages-1?this.state.currentPage+1:pages-1}
+    if(page==='<<'){newPage = 0}
+    if(page==='>>'){newPage = pages-1}
+console.log(newPage)
+    this.setState({
+      currentPage: Number(newPage),
+    })
+  }
+
+  getFilteredData() {
+    const { data, searchFilter } = this.state
+
+    if (!searchFilter) {
+      return data
+    }
+
     return data.filter((item) => {
       return (
-        item['first_name'].toLowerCase().includes(search.toLowerCase()) ||
-        item['last_name'].toLowerCase().includes(search.toLowerCase()) ||
-        item['email'].toLowerCase().includes(search.toLowerCase()) ||
-        item['phone'].toLowerCase().includes(search.toLowerCase())
+        item['firstName'].toLowerCase().includes(searchFilter.toLowerCase()) ||
+        item['lastName'].toLowerCase().includes(searchFilter.toLowerCase()) ||
+        item['email'].toLowerCase().includes(searchFilter.toLowerCase()) ||
+        item['phone'].toLowerCase().includes(searchFilter.toLowerCase())
       )
     })
   }
 
   render() {
+    const filteredData = this.getFilteredData()
+
     return (
-      <div className="table-responsive">
-        <TableSearch searchHandler={this.searchHandler} />
-        <table className="table table-hover">
-          <TableHead
-            headers={this.state.headers}
-            sortHandler={this.sortHandler}
-            sortDirection={this.state.sortDirection}
-            sortField={this.state.sortField}
-          />
-          <TableBody
-            data={this.state.search ? this.state.filteredData : this.state.data}
-            selectionHandler={this.selectionHandler}
-            searchFilter={this.state.searchFilter}
-          />
-        </table>
-      </div>
+      <>
+        <div className="container">
+          <TableSearch searchHandler={this.searchHandler} />
+          <div className="table-responsive">
+            <table className="table table-hover">
+              <TableHead
+                headers={this.state.headers}
+                sortHandler={this.sortHandler}
+                sortDirection={this.state.sortDirection}
+                sortField={this.state.sortField}
+              />
+              <TableBody
+                data={filteredData.slice(0+this.state.currentPage*10, 10+this.state.currentPage*10)}
+                selectionHandler={this.selectionHandler}
+                searchFilter={this.state.searchFilter}
+              />
+            </table>
+          </div>
+
+          <div className="row">
+            <div className="col-sm-8">
+              <TablePaginator 
+              itemsCount={filteredData.length}
+              currentPage={this.state.currentPage}
+              paginatorHandler={this.paginatorHandler}
+              itemsOnPage={this.state.itemsOnPage}
+              />
+            </div>
+            <div className="col-sm-4">
+              <button type="button" className="btn btn-block btn-primary ">
+                Добавить
+              </button>
+            </div>
+          </div>
+        </div>
+      </>
     )
   }
 }
