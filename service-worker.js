@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/fugr-ru-react-test/precache-manifest.cfd694f5846293aff1d6707a4acb5d69.js"
+  "/fugr-ru-react-test/precache-manifest.5016a34fb5cee08627d1f199f6d78350.js"
 );
 
 self.addEventListener('message', (event) => {
