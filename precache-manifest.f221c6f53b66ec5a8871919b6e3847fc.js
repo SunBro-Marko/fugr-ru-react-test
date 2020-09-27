@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "613b0fc51768655ff5cd92142185963a",
+    "revision": "853b8e0112b25c3016fb2ed8fa6fa5d8",
     "url": "/fugr-ru-react-test/index.html"
   },
   {
-    "revision": "b292a7bb98d942a01e3a",
+    "revision": "3649788932528056645e",
     "url": "/fugr-ru-react-test/static/css/main.ad3d7fdd.chunk.css"
   },
   {
-    "revision": "4f91eec0ad8ef7f1d747",
-    "url": "/fugr-ru-react-test/static/js/2.465791ab.chunk.js"
+    "revision": "ec3866d898617bee4071",
+    "url": "/fugr-ru-react-test/static/js/2.3eb4758a.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/fugr-ru-react-test/static/js/2.465791ab.chunk.js.LICENSE.txt"
+    "url": "/fugr-ru-react-test/static/js/2.3eb4758a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b292a7bb98d942a01e3a",
-    "url": "/fugr-ru-react-test/static/js/main.ed1f1e9e.chunk.js"
+    "revision": "3649788932528056645e",
+    "url": "/fugr-ru-react-test/static/js/main.3a409478.chunk.js"
   },
   {
     "revision": "6c49e45d7acef5724baa",
