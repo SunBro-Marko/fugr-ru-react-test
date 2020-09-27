@@ -21,10 +21,10 @@ class Table extends React.Component {
     itemsOnPage: 10,
     currentPage: 0,
     headers: ['id', 'firstName', 'lastName', 'email', 'phone'],
-    addItem:''
+    addItem: ''
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.sortHandler('none')
   }
 
@@ -59,39 +59,58 @@ class Table extends React.Component {
     this.setState({
       data: sortType === 'asc' ? orderedData : orderedData.reverse(),
       sortDirection: sortType,
-      sortField: field,
+      sortField: field
     })
   }
 
   selectionHandler = (row) => {
     this.setState({
-      selectionRow: row,
+      selectionRow: row
     })
     document.addEventListener('click', this.deleteActive)
   }
 
+  deleteActive = (e) => {
+    const isCell = e.target instanceof HTMLTableCellElement
+
+    if (!isCell) {
+      document.removeEventListener('click', this.deleteActive)
+      this.setState({selectionRow: null})
+    }
+  }
+
   searchHandler = (search) => {
     this.setState({
-      searchFilter: search,
+      searchFilter: search
     })
   }
 
   paginatorHandler = (page, pages) => {
     let newPage
 
-    if(parseInt(page)){newPage = page-1}
-    if(page==='<'){newPage =  this.state.currentPage-1>=0 ? this.state.currentPage-1:0}
-    if(page==='>'){newPage =  this.state.currentPage+1<=pages-1?this.state.currentPage+1:pages-1}
-    if(page==='<<'){newPage = 0}
-    if(page==='>>'){newPage = pages-1}
+    if (parseInt(page)) {
+      newPage = page - 1
+    }
+    if (page === '<') {
+      newPage = this.state.currentPage - 1 >= 0 ? this.state.currentPage - 1 : 0
+    }
+    if (page === '>') {
+      newPage = this.state.currentPage + 1 <= pages - 1 ? this.state.currentPage + 1 : pages - 1
+    }
+    if (page === '<<') {
+      newPage = 0
+    }
+    if (page === '>>') {
+      newPage = pages - 1
+    }
 
     this.setState({
-      currentPage: Number(newPage),
+      currentPage: Number(newPage)
     })
   }
 
   getFilteredData() {
-    const { data, searchFilter } = this.state
+    const {data, searchFilter} = this.state
 
     if (!searchFilter) {
       return data
@@ -107,37 +126,28 @@ class Table extends React.Component {
     })
   }
 
-  AddElementHandler = (element)=>{
+  AddElementHandler = (element) => {
     this.setState({
-      addItem:element
+      addItem: element
     })
   }
 
-  deleteActive = (e) => {
-    document.removeEventListener('click', this.deleteActive)
-    const isCell = e.target instanceof HTMLTableCellElement
 
-    if(!isCell){
-      this.setState({selectionRow: null})
-    }
-  }
 
-  CheckElementForAdd(arr){
-    
-    if(this.state.addItem!==''){
+
+  CheckElementForAdd(arr) {
+    if (this.state.addItem !== '') {
       arr.unshift(this.state.addItem)
-    this.setState({
-      addItem:''
-    })  
+      this.setState({
+        addItem: ''
+      })
     }
-    
   }
-  
 
 
   render() {
     const filteredData = this.getFilteredData()
-    if(filteredData[0]!==this.state.addItem)
+    if (filteredData[0] !== this.state.addItem)
       this.CheckElementForAdd(filteredData)
 
     const userInfo = this.state.selectionRow ?
@@ -146,7 +156,7 @@ class Table extends React.Component {
     return (
       <>
         <div className="container">
-          <TableSearch searchHandler={this.searchHandler} />
+          <TableSearch searchHandler={this.searchHandler}/>
           <div className="table-responsive">
             <table className="table table-hover">
               <TableHead
@@ -156,26 +166,27 @@ class Table extends React.Component {
                 sortField={this.state.sortField}
               />
               <TableBody
-                data={filteredData.slice(0+this.state.currentPage*10, 10+this.state.currentPage*10)}
+                data={filteredData.slice(0 + this.state.currentPage * 10, 10 + this.state.currentPage * 10)}
                 selectionHandler={this.selectionHandler}
                 searchFilter={this.state.searchFilter}
               />
             </table>
           </div>
-          
+
 
           <div className="row">
             <div className="col-sm-8">
-              <TablePaginator 
-              itemsCount={filteredData.length}
-              currentPage={this.state.currentPage}
-              paginatorHandler={this.paginatorHandler}
-              itemsOnPage={this.state.itemsOnPage}
+              <TablePaginator
+                itemsCount={filteredData.length}
+                currentPage={this.state.currentPage}
+                paginatorHandler={this.paginatorHandler}
+                itemsOnPage={this.state.itemsOnPage}
               />
             </div>
             <div className="col-sm-4">
-              
-              <button type="button" className="btn btn-block btn-primary" data-toggle="modal" data-target="#addModalForm">
+
+              <button type="button" className="btn btn-block btn-primary" data-toggle="modal"
+                      data-target="#addModalForm">
                 Добавить
               </button>
             </div>
@@ -185,7 +196,7 @@ class Table extends React.Component {
 
         </div>
 
-        <AddElementForm handleSubmitElement = {this.AddElementHandler}/>
+        <AddElementForm handleSubmitElement={this.AddElementHandler}/>
       </>
     )
   }
