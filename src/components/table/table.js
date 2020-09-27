@@ -3,6 +3,7 @@ import TableSearch from './tableSearch'
 import TableHead from './tableHead'
 import TableBody from './tableBody'
 import TablePaginator from './tablePaginator'
+import AddElementForm from './AddElementForm/AddElementForm'
 
 //import classes from "./template.module.scss"
 
@@ -19,6 +20,7 @@ class Table extends React.Component {
     itemsOnPage: 10,
     currentPage: 0,
     headers: ['id', 'firstName', 'lastName', 'email', 'phone'],
+    addItem:''
   }
 
   componentDidMount(){
@@ -83,7 +85,7 @@ class Table extends React.Component {
     if(page==='>'){newPage =  this.state.currentPage+1<=pages-1?this.state.currentPage+1:pages-1}
     if(page==='<<'){newPage = 0}
     if(page==='>>'){newPage = pages-1}
-console.log(newPage)
+
     this.setState({
       currentPage: Number(newPage),
     })
@@ -106,8 +108,29 @@ console.log(newPage)
     })
   }
 
+  AddElementHandler = (element)=>{
+    this.setState({
+      addItem:element
+    })
+  }
+
+  CheckElementforAdd(arr){
+    
+    if(this.state.addItem!==''){
+      arr.unshift(this.state.addItem)
+    this.setState({
+      addItem:''
+    })  
+    }
+    
+  }
+  
+
+
   render() {
     const filteredData = this.getFilteredData()
+    if(filteredData[0]!==this.state.addItem)
+      this.CheckElementforAdd(filteredData)
 
     return (
       <>
@@ -128,6 +151,7 @@ console.log(newPage)
               />
             </table>
           </div>
+          
 
           <div className="row">
             <div className="col-sm-8">
@@ -139,12 +163,14 @@ console.log(newPage)
               />
             </div>
             <div className="col-sm-4">
-              <button type="button" className="btn btn-block btn-primary ">
+              
+              <button type="button" className="btn btn-block btn-primary" data-toggle="modal" data-target="#addModalForm">
                 Добавить
               </button>
             </div>
           </div>
         </div>
+        <AddElementForm handleSubmitElement = {this.AddElementHandler}/>
       </>
     )
   }
