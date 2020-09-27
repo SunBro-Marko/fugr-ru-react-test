@@ -4,6 +4,7 @@ import TableHead from './tableHead'
 import TableBody from './tableBody'
 import TablePaginator from './tablePaginator'
 import AddElementForm from './AddElementForm/AddElementForm'
+import UserInfo from './UserInfo/UserInfo'
 
 //import classes from "./template.module.scss"
 
@@ -66,18 +67,16 @@ class Table extends React.Component {
     this.setState({
       selectionRow: row,
     })
+    document.addEventListener('click', this.deleteActive)
   }
 
   searchHandler = (search) => {
-    
     this.setState({
       searchFilter: search,
     })
   }
 
   paginatorHandler = (page, pages) => {
-    
-
     let newPage
 
     if(parseInt(page)){newPage = page-1}
@@ -114,7 +113,16 @@ class Table extends React.Component {
     })
   }
 
-  CheckElementforAdd(arr){
+  deleteActive = (e) => {
+    document.removeEventListener('click', this.deleteActive)
+    const isCell = e.target instanceof HTMLTableCellElement
+
+    if(!isCell){
+      this.setState({selectionRow: null})
+    }
+  }
+
+  CheckElementForAdd(arr){
     
     if(this.state.addItem!==''){
       arr.unshift(this.state.addItem)
@@ -130,7 +138,10 @@ class Table extends React.Component {
   render() {
     const filteredData = this.getFilteredData()
     if(filteredData[0]!==this.state.addItem)
-      this.CheckElementforAdd(filteredData)
+      this.CheckElementForAdd(filteredData)
+
+    const userInfo = this.state.selectionRow ?
+      <UserInfo user={this.state.selectionRow}/> : ''
 
     return (
       <>
@@ -169,7 +180,11 @@ class Table extends React.Component {
               </button>
             </div>
           </div>
+
+          {userInfo}
+
         </div>
+
         <AddElementForm handleSubmitElement = {this.AddElementHandler}/>
       </>
     )

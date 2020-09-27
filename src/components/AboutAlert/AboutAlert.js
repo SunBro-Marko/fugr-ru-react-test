@@ -4,7 +4,7 @@ const AboutAlert = (props) => {
   const {repoUrl} = props
 
   return (
-    <div className="col alert alert-info alert-dismissible fade show" role="alert">
+    <div className="alert alert-info alert-dismissible fade show" role="alert">
       <h5 className="alert-heading">More info:</h5>
       You can get more information about test task
         and view app's code on those Github repos by&nbsp;
