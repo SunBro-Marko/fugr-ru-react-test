@@ -4,6 +4,7 @@ import {
 import NavBar from './components/NavBar/NavBar'
 import AboutPage from './pages/AboutPage'
 import StartPage from './pages/StartPage'
+import DescriptionPage from './pages/DescriptionPage'
 import {TableDataProvider} from './components/TableDataProvider/TableDataProvider'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Switch>
           <Route exact path='/table/:size' component={TableDataProvider}/>
           <Route path="/about" component={AboutPage}/>
+          <Route path="/description" component={DescriptionPage}/>
           <Route path="/" component={StartPage}/>
         </Switch>
       </Router>
